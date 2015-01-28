@@ -1,25 +1,35 @@
-
 $(document).ready(function(){
 	
-	/*--- Display information modal box ---*/
-  	$(".what").click(function(){
-    	$(".overlay").fadeIn(1000);
 
-  	});
+/*--Display information modal box--*/
+    $(".what").click(function(){
+      $(".overlay").fadeIn(1000);
 
-  /*--- Hide information modal box ---*/
-  	$("a.close").click(function(){
-  		$(".overlay").fadeOut(1000);
-  	});
+    });
 
-  /*---New game function---*/
-    var newGame = function() {
-      var randomNum = Math.floor((Math.random() * 100) + 1);
-      var userNum = $('#userGuess').val();
+ /*--Hide information modal box--*/
+    $("a.close").click(function(){
+      $(".overlay").fadeOut(1000);
+    });
+
+
+
+   var generateNum = function() {
+    return Math.floor((Math.random() * 100) + 1);
+  };
+
+
+    var randomNum = generateNum();
+    var userNum = $('#userGuess').val();
+    var difference = ('randomNum' - 'userNum');
+    var totalGuess = 1;
+      
+
+      /*var userNum = $('#userGuess').val();
       var difference = (randomNum - userNum);
       $('#count').text("0");
       $('#guesslist').empty();
-      $('#feedback').text("Make your Guess!");
+      $('#feedback').text("Make your Guess!");*/
 
       if (userNum === randomNum) {
         $('#feedback').text("You Got It - How Did You Do That?!");
@@ -57,12 +67,5 @@ $(document).ready(function(){
 
 };
 
-    newGame();
-    
-    $('#.new').click(function(){
-      newGame();
-    });
 
 });
-
-
